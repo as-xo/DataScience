@@ -1,12 +1,12 @@
-Predicting Overdraft Risk from Personal Transactions
+**Predicting Overdraft Risk from Personal Transactions**
 
 This project predicts whether an account is likely to go into overdraft the following month using historical transactions and budget data. It demonstrates a full end-to-end data science workflow: data cleaning, feature engineering, time-based splitting, model training, evaluation, and interpretation.
 
-📌 Project Overview
+📌 **Project Overview**
 
-Problem: Identify next-month overdraft risk using personal spending behaviour.
-Goal: Build a simple but realistic proof-of-concept model for financial risk prediction.
-Use Case: Helps users understand spending habits and avoid unnecessary overdraft fees.
+**Problem:** Identify next-month overdraft risk using personal spending behaviour.
+**Goal:** Build a simple but realistic proof-of-concept model for financial risk prediction.
+**Use Case:** Helps users understand spending habits and avoid unnecessary overdraft fees.
 
 Approach:
 
@@ -22,7 +22,8 @@ Train a Random Forest classifier
 
 Evaluate performance and interpret results
 
-📂 Data Processing Workflow
+📂 **Data Processing Workflow**
+
 Data was dowloaded from Kaggle: https://www.kaggle.com/datasets/bukolafatunde/personal-finance?resource=download
 
 1. Load Data
@@ -68,7 +69,7 @@ next_month_overdraft = total_spent_next_month > 2000
 
 Encoded Account Name as dummy variables.
 
-🤖 Model
+🤖 **Model**
 Train/Test Split:
 
 Sorted chronologically and used an 80/20 time-series split to avoid data leakage.
@@ -77,31 +78,31 @@ Model:
 
 Used a RandomForestClassifier with default settings.
 
-Evaluation:
+**Evaluation:**
 
 Generated predictions on the test set and reviewed the classification report.
 
-📊 Results & Analysis
+📊 **Results & Analysis**
 
 The model achieved 92% accuracy, but the breakdown across classes is more important.
 
-It correctly captured all high-spend (high-risk) months — ideal for overdraft prediction.
+It correctly captured all high-spend (high-risk) months which is ideal for overdraft prediction.
 
 Low-spend months were also mostly identified correctly, with only one misclassification.
 
 The model sometimes flags a low-spend month as high-spend, but never misses a genuine high-risk one.
 
-⚠️ Limitations
+⚠️ **Limitations**
 
 Very small dataset (only 13 test samples), so metrics aren’t reliable.
 
 Features are simple, and one-hot encoding on limited data can cause overfitting.
 
-The risk label is based on a basic spending threshold — not true banking logic.
+The risk label is based on a basic spending threshold.
 
 Not production-ready (no error handling, no real-time pipeline, minimal feature engineering).
 
-🔧 Future Improvements
+🔧 **Future Improvements**
 
 Replace the spending threshold with minimum running balance, which is a stronger indicator of overdraft risk.
 
